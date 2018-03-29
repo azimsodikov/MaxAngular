@@ -1,0 +1,9 @@
+<div
+  class="panel panel-default">
+  <div class="panel-heading" #heading>{{ element.name }}</div>
+  <div class="panel-body">
+    <ng-content></ng-content>
+    <!-- In the app.component.html, instead of putting component elements here, we placed it there, by simply putting ng-content we can 
+    tell angular where we want to put new content -->
+  </div>
+</div>

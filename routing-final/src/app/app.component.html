@@ -1,0 +1,31 @@
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12 col-sm-10 col-md-8 col-sm-offset-1 col-md-offset-2">
+        <!-- We use special angular directive routerLink="linkaddress" to navigate through links, that way we do not reload the page -->
+        <!-- [routerLink]="'/users'" this is the array notaion is super useful  -->
+        <!-- The way routerLink works is it prevents default and looks for the path that we defined in the array -->
+        <!-- With the relative path (without slashes) it just appends a string to the end of the URL -->
+        <!-- routerLinkActive="active" will add a class to the active link -->
+        <!-- [routerLinkAciveOption]="{exact: true}" gives a class only it exactly maches the URL -->
+      <ul class="nav nav-tabs">
+        <li role="presentation"
+            routerLinkActive="active"> 
+          <a routerLink="/">Home</a>
+        </li>
+        <li role="presentation"
+            routerLinkActive="active">
+          <a routerLink="servers">Servers</a>
+        </li>
+        <li role="presentation"
+            routerLinkActive="active">
+          <a [routerLink]="['users']">Users</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-xs-12 col-sm-10 col-md-8 col-sm-offset-1 col-md-offset-2">
+      <router-outlet></router-outlet>
+    </div>
+  </div>
+</div>

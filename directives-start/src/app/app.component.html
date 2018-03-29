@@ -1,0 +1,67 @@
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12">
+      <button
+        class="btn btn-primary"
+        (click)="onlyOdd = !onlyOdd">Only show odd numbers</button>
+      <br><br>
+      <ul class="list-group">
+        <!-- We cant have more than one structural directive on a single element -->
+        <!-- <div *ngIf="onlyOdd">
+          <li
+            class="list-group-item"
+            [ngClass]="{odd: oddNumbers % 2 !== 0}"
+            [ngStyle]="{backgroundColor: oddNumber % 2 !== 0? 'yellow': 'transparent'}"
+            *ngFor="let number of oddNumbers">
+            {{number}}
+          </li>
+        </div> -->
+
+
+        <div *ngIf="!onlyOdd">
+          <li
+            class="list-group-item"
+            [ngClass]="{odd: evenNumbers % 2 === 0}"
+            [ngStyle]="{backgroundColor: evenNumbers % 2 === 0? 'yellow': 'transparent'}"
+            *ngFor="let number of evenNumbers">
+            {{number}}
+          </li>
+        </div>
+
+
+        <div *appUnless="!onlyOdd">
+          <li
+            class="list-group-item"
+            [ngClass]="{odd: oddNumbers % 2 !== 0}"
+            [ngStyle]="{backgroundColor: oddNumber % 2 !== 0? 'yellow': 'transparent'}"
+            *ngFor="let number of oddNumbers">
+            <!-- We cant have more than one structural directive on a single element -->
+            {{number}}
+          </li>
+        </div>
+
+
+      <!-- <ng-template [ngIf]="!onlyOdd">
+        This is basically saying the same thing as *ngIf, we dont have to use it but if we use it this is what happens behind the scenes
+        Thats why structural directives shoud be used with star at the beginning
+        <div>
+          <li
+            class="list-group-item"
+            [ngClass]="{odd: evenNumbers % 2 === 0}"
+            [ngStyle]="{backgroundColor: evenNumbers % 2 === 0? 'yellow': 'transparent'}"
+            *ngFor="let number of evenNumbers">
+            {{number}}
+          </li>
+        </div>
+      </ng-template> -->
+      </ul>
+      <p appBasicHighlight>It was styled with a basic directive</p>
+      <p appBetterHighlight [defaultColor]="'transparent'" [highlightColor]="'orange'">It was styled with a better directive</p>
+    </div>
+    <div [ngSwitch]="value">
+      <p *ngSwitchCase="5">This is 5</p>
+      <p *ngSwitchCase="10">This is 10</p>
+      <p *ngSwitchCase="15">This is 15</p>
+    </div>
+  </div>
+</div>
